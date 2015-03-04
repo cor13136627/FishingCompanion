@@ -7,41 +7,45 @@
 
     <Button
         android:id="@+id/CaughtAFishButton"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
         android:text="Caught A Fish!"
         />
 
-    <EditText
-        android:id="@+id/FishSpecies"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/CaughtAFishButton"/>
-
-    <EditText
-        android:id="@+id/FishWeight"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/FishSpecies"/>
-
-    <EditText
-        android:id="@+id/SwimNumber"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/FishWeight"/>
-
-    <EditText
-        android:id="@+id/BaitName"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/SwimNumber"/>
-
     <Button
-        android:id="@+id/ShowFishButton"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:text="Show Fish"
-        android:layout_below="@+id/BaitName"/>
+        android:id="@+id/btnUpdate"
+        android:layout_width="140dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:text="Update"
+        android:layout_toRightOf="@+id/CaughtAFishButton"/>
+
+    <EditText
+        android:id="@+id/editTextSpecies"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        />
+    <EditText
+        android:id="@+id/editTextWeight"
+        android:layout_toRightOf="@+id/editTextSpecies"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:layout_below="@+id/editTextSpecies"
+        android:id="@+id/FishList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="#212121"
+        android:dividerHeight="2dp"
+        />
+
+
 
 
 
