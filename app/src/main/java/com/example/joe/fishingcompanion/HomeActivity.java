@@ -28,47 +28,53 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Species = (EditText)findViewById(R.id.editTextSpecies);
-        Weight = (EditText)findViewById(R.id.editTextWeight);
+        Species = (EditText) findViewById(R.id.editTextSpecies);
+        Weight = (EditText) findViewById(R.id.editTextWeight);
         FishList = (ListView) findViewById(R.id.FishList);
 
         fishList = new ArrayList<FishListObject>();
 
-        btnUpdate = (Button)findViewById(R.id.btnUpdate);
+        btnUpdate = (Button) findViewById(R.id.btnUpdate);
+    }
+
+    @Override
+    public void onStart() {
+        FishAdapter adapter = new FishAdapter(fishList);
+        FishList.setAdapter(adapter);
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                fishList.add(new FishListObject(Species.getText().toString(),Weight.getText().toString()));
+            public void onClick(View view) {
+                fishList.add(new FishListObject("Athens","Greece"));
+              recreate();
             }
         });
-
-        FishAdapter adapter = new FishAdapter(fishList);
-        FishList.setAdapter(adapter);
     }
 
     private class FishAdapter extends ArrayAdapter<FishListObject> {
 
         public FishAdapter(List<FishListObject> items) {
+
             super(HomeActivity.this, 0, items);
         }
 
         @Override
-        public  View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
 
-            if (convertView == null){
-                convertView = getLayoutInflater().inflate(R.layout.fish_list_object, null);
+            if (convertView == null) {
+                convertView = getLayoutInflater().inflate(
+                        R.layout.fish_list_object, null);
             }
 
-            TextView lblFishWeight = (TextView)findViewById(R.id.lblFishWeight);
-            TextView lblFishSpecies = (TextView)findViewById(R.id.lblFishSpecies);
+            TextView lblFishWeight = (TextView) convertView.findViewById(R.id.lblFishWeight);
+            TextView lblFishSpecies = (TextView) convertView.findViewById(R.id.lblFishSpecies);
 
             FishListObject location = fishList.get(position);
 
             lblFishWeight.setText(location.getFishWeight());
             lblFishSpecies.setText(location.getFishSpecies());
 
-         return convertView;
+            return convertView;
         }
 
     }

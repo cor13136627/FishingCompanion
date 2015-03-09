@@ -8,15 +8,17 @@
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="test"
         />
 
     <TextView
         android:id="@+id/lblFishWeight"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/lblFishSpecies"
+        android:layout_marginLeft="100dp"
+        android:layout_toRightOf="@+id/lblFishSpecies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="test"
         />
 
 </RelativeLayout>
