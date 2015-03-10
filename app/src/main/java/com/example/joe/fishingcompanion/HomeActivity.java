@@ -35,20 +35,9 @@ public class HomeActivity extends Activity {
         fishList = new ArrayList<FishListObject>();
 
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
-    }
 
-    @Override
-    public void onStart() {
         FishAdapter adapter = new FishAdapter(fishList);
         FishList.setAdapter(adapter);
-
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fishList.add(new FishListObject("Athens","Greece"));
-              recreate();
-            }
-        });
     }
 
     private class FishAdapter extends ArrayAdapter<FishListObject> {
@@ -77,6 +66,13 @@ public class HomeActivity extends Activity {
             return convertView;
         }
 
+    }
+
+    public void addItem(View v){
+        fishList.add(new FishListObject("test","Test"));
+
+        FishAdapter adapter = new FishAdapter(fishList);
+        FishList.setAdapter(adapter);
     }
 }
 
