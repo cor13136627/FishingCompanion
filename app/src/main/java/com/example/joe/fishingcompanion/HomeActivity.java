@@ -69,7 +69,7 @@ public class HomeActivity extends Activity {
     }
 
     public void addItem(View v){
-        fishList.add(new FishListObject("test","Test"));
+        fishList.add(new FishListObject(Species.getText().toString(),Weight.getText().toString()));
 
         FishAdapter adapter = new FishAdapter(fishList);
         FishList.setAdapter(adapter);
